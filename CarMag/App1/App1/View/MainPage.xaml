@@ -6,14 +6,27 @@
              mc:Ignorable="d"
              x:Class="App1.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.Content>
+        <CarouselView ItemsSource="{Binding Items}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="20">
+                        <Frame BorderColor="Gray" CornerRadius="8">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label Text="Tarjeta" FontAttributes="Bold" FontSize="14" 
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Row="1" Text="{Binding .}" FontSize="12" 
+                                       HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+    </ContentPage.Content>
 
 </ContentPage>
